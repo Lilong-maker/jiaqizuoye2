@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package proto;
+
+option go_package = "./";
+
+message LoginReq {
+  string name = 1;
+  string password = 2;
+}
+
+message LoginResp {
+  string msg = 1;
+  int64 code = 2;
+}
+message SpAddReq {
+  string name = 1;
+  string spLen = 2;
+  string spNum = 3;
+}
+
+message SpAddResp {
+  string msg = 1;
+  int64 code = 2;
+}
+service User {
+  rpc Login(LoginReq) returns (LoginResp);
+  rpc SpAdd(SpAddReq) returns (SpAddResp);
+}
